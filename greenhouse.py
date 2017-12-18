@@ -6,7 +6,6 @@ therms = DS18B20()
 
 therms.NameDevice( "Air" )
 therms.NameDevice( "Water" )
-therms.create_dict()
 
 while True:
     water_temp = therms.get_current_temp( "Water" )
