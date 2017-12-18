@@ -1,5 +1,14 @@
 from DS18B20 import DS18B20
 import time
+from relaypipy import RelayPiPy
+
+gh_relay = RelayPiPy()
+
+# Initialize list with pin numbers
+pinList = [ 6, 13, 19, 26 ]
+
+gh_relay.init(pinList)
+
 
 
 therms = DS18B20()
