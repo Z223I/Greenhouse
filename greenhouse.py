@@ -1,6 +1,7 @@
 from DS18B20 import DS18B20
 import time
 from relaypipy import RelayPiPy
+import Heater
 
 gh_relay = RelayPiPy()
 
@@ -8,6 +9,25 @@ gh_relay = RelayPiPy()
 pinList = [ 6, 13, 19, 26 ]
 
 gh_relay.init(pinList)
+
+# Reserve relays 0, 1, 2 for fish feeder
+powerRelay = 0
+terminal1Relay = 1
+terminal2Relay = 2
+
+# create and initialize fish feeder.
+
+
+
+# create heater.
+heaterRelay = 3
+heaterPin = pinList[ heaterRelay ]
+
+gh_heater = Heater( heaterPin )
+
+gh_heater.init()
+
+gh_heater.off()
 
 
 
