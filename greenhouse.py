@@ -1,10 +1,8 @@
-#from DS18B20 import DS18B20
+#xxxxxxfrom DS18B20 import DS18B20
 import DS18B20
 import time
 from relaypipy.relaypipy import RelayPiPy
-#import RelayPiPy
-
-import Heater
+from Heater.Heater import Heater
 #from fishfeeder2 import fishfeeder2
 
 gh_relay = RelayPiPy()
