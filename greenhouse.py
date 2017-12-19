@@ -1,8 +1,11 @@
-from DS18B20 import DS18B20
+#from DS18B20 import DS18B20
+import DS18B20
 import time
-from relaypipy import RelayPiPy
-import Heater
+from relaypipy.relaypipy import RelayPiPy
+#import RelayPiPy
 
+import Heater
+#from fishfeeder2 import fishfeeder2
 
 gh_relay = RelayPiPy()
 
@@ -17,7 +20,7 @@ terminal1Relay = 1
 terminal2Relay = 2
 
 # create and initialize fish feeder.
-
+#gh_fishfeeder = FishFeeder2()
 
 
 # create heater.
