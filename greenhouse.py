@@ -1,5 +1,5 @@
 #xxxxxxfrom DS18B20 import DS18B20
-import DS18B20
+from DS18B20.DS18B20 import DS18B20
 import time
 from relaypipy.relaypipy import RelayPiPy
 from Heater.Heater import Heater
@@ -37,6 +37,7 @@ therms = DS18B20()
 
 therms.NameDevice( "Air" )
 therms.NameDevice( "Water" )
+therms.create_dict()
 
 while True:
     water_temp = therms.get_current_temp( "Water" )
