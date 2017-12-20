@@ -1,13 +1,12 @@
-#xxxxxxfrom DS18B20 import DS18B20
 from DS18B20.DS18B20 import DS18B20
 import time
 from relaypipy.relaypipy import RelayPiPy
 from Heater.Heater import Heater
-#from fishfeeder2 import fishfeeder2
+from FishFeeder2.fishfeeder2 import FishFeeder2
 
 gh_relay = RelayPiPy()
 
-# Initialize list with pin numbers
+# Initialize relay list with pin numbers
 pinList = [ 6, 13, 19, 26 ]
 
 gh_relay.init(pinList)
