@@ -1,20 +1,38 @@
+#/usr/bin/python2.7
+
+
+
+# TODO: and code for keyboard interupt.
+
+
 from DS18B20.DS18B20 import DS18B20
 import time
 from relaypipy.relaypipy import RelayPiPy
 from Heater.Heater import Heater
 from FishFeeder2.fishfeeder2 import FishFeeder2
 
-gh_relay = RelayPiPy()
+pinList = []
 
-# Initialize relay list with pin numbers
-pinList = [ 6, 13, 19, 26 ]
+def relay_init():
+    global pinList
 
-gh_relay.init(pinList)
+    gh_relay = RelayPiPy()
 
-# Reserve relays 0, 1, 2 for fish feeder
-powerRelay = 0
-terminal1Relay = 1
-terminal2Relay = 2
+    # Initialize relay list with pin numbers
+    pinList = [ 6, 13, 19, 26 ]
+
+    gh_relay.init(pinList)
+
+    # Reserve relays 0, 1, 2 for fish feeder
+    powerRelay = 0
+    terminal1Relay = 1
+    terminal2Relay = 2
+
+relay_init()
+print "Done with relay."
+
+
+
 
 # create and initialize fish feeder.
 #gh_fishfeeder = FishFeeder2()
