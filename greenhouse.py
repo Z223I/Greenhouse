@@ -28,41 +28,81 @@ def relay_init():
     terminal1Relay = 1
     terminal2Relay = 2
 
-relay_init()
-print "Done with relay."
 
 
+def heater_init():
+    global pinList
 
+    # create heater.
+    heaterRelay = 3
+    heaterPin = pinList[ heaterRelay ]
 
-# create and initialize fish feeder.
-#gh_fishfeeder = FishFeeder2()
+    gh_heater = Heater( heaterPin )
 
+    gh_heater.init()
 
-# create heater.
-heaterRelay = 3
-heaterPin = pinList[ heaterRelay ]
+    gh_heater.off()
 
-gh_heater = Heater( heaterPin )
+##################################################
+# Function shutdown
+##################################################
 
-gh_heater.init()
-
-gh_heater.off()
-
-
-
-therms = DS18B20()
-
-therms.NameDevice( "Air" )
-therms.NameDevice( "Water" )
-therms.create_dict()
-
-while True:
-    water_temp = therms.get_current_temp( "Water" )
-    print "Water temp: ", water_temp
-
-    air_temp = therms.get_current_temp( "Air" )
-    print "Air temp: ", air_temp
-
+def shutdown():
+    GPIO.cleanup()
     print
+    print "Bye!"
 
-    time.sleep(2)
+# End shutdown
+
+
+
+
+##################################################
+#
+# Main
+#
+##################################################
+
+
+try:
+    relay_init()
+    print "Done with relay."
+
+
+
+
+    # create and initialize fish feeder.
+    #gh_fishfeeder = FishFeeder2()
+
+
+    heater_init()
+
+
+
+
+
+
+    therms = DS18B20()
+
+    therms.NameDevice( "Air" )
+    therms.NameDevice( "Water" )
+    therms.create_dict()
+
+    while True:
+        water_temp = therms.get_current_temp( "Water" )
+        print "Water temp: ", water_temp
+
+        air_temp = therms.get_current_temp( "Air" )
+        print "Air temp: ", air_temp
+
+        print
+
+        time.sleep(2)
+
+# End try
+
+except KeyboardInterrupt:
+    print "Keyboard Interrupt"
+# End except
+
+shutdown()
