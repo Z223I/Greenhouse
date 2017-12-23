@@ -3,12 +3,12 @@
 
 
 # TODO: and code for keyboard interupt.
-
+# On keyboard interrupt... global GPIO not defined.
 
 from DS18B20.DS18B20 import DS18B20
 import time
 from relaypipy.relaypipy import RelayPiPy
-from Heater.Heater import Heater
+#from Heater.Heater import Heater
 from FishFeeder2.fishfeeder2 import FishFeeder2
 
 pinList = []
@@ -43,6 +43,9 @@ def heater_init():
 
     gh_heater.off()
 
+
+
+
 ##################################################
 # Function shutdown
 ##################################################
@@ -72,10 +75,11 @@ try:
 
 
     # create and initialize fish feeder.
-    #gh_fishfeeder = FishFeeder2()
+    # TODO: Update these to the correct pin numbers.
+    gh_fishfeeder = FishFeeder2(1, 1, 1, 1)
 
 
-    heater_init()
+#    heater_init()
 
 
 
