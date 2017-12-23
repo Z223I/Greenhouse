@@ -28,6 +28,7 @@ def relay_init():
     terminal1Relay = 1
     terminal2Relay = 2
 
+    # Reserve relay 3 for heater
 
 
 def heater_init():
@@ -51,7 +52,7 @@ def heater_init():
 ##################################################
 
 def shutdown():
-    GPIO.cleanup()
+    #GPIO.cleanup()
     print
     print "Bye!"
 
