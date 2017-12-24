@@ -7,9 +7,9 @@
 
 from DS18B20.DS18B20 import DS18B20
 import time
-from relaypipy.relaypipy import RelayPiPy
+from RelayPiPy.relaypipy import RelayPiPy
 #from Heater.Heater import Heater
-from FishFeeder2.fishfeeder2 import FishFeeder2
+#from FishFeeder2.fishfeeder2 import FishFeeder2
 
 pinList = []
 
@@ -77,7 +77,7 @@ try:
 
     # create and initialize fish feeder.
     # TODO: Update these to the correct pin numbers.
-    gh_fishfeeder = FishFeeder2(1, 1, 1, 1)
+#    gh_fishfeeder = FishFeeder2(1, 1, 1, 1)
 
 
 #    heater_init()
