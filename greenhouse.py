@@ -8,7 +8,7 @@
 from DS18B20.DS18B20 import DS18B20
 import time
 from RelayPiPy.relaypipy import RelayPiPy
-#from Heater.Heater import Heater
+from Heater.Heater import Heater
 #from FishFeeder2.fishfeeder2 import FishFeeder2
 
 pinList = []
@@ -31,20 +31,26 @@ def relay_init():
     # Reserve relay 3 for heater
 
 
+
 def heater_init():
     global pinList
 
+
     # create heater.
     heaterRelay = 3
-    heaterPin = pinList[ heaterRelay ]
+#    heaterPin = pinList[ heaterRelay ]
 
-    gh_heater = Heater( heaterPin )
+    gh_heater = Heater( heaterRelay )
 
-    gh_heater.init()
+#    gh_heater.init()
 
     gh_heater.off()
+    time.sleep(2)
 
+    gh_heater.off()
+    time.sleep(2)
 
+    return gh_heater
 
 
 ##################################################
@@ -80,7 +86,9 @@ try:
 #    gh_fishfeeder = FishFeeder2(1, 1, 1, 1)
 
 
-#    heater_init()
+#    print "Heater initialization..."
+#    gh_heater = Heater()
+    lgh_heater = heater_init()
 
 
 
