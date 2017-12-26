@@ -5,7 +5,7 @@
 # TODO: and code for keyboard interupt.
 # On keyboard interrupt... global GPIO not defined.
 
-from DS18B20.DS18B20 import DS18B20
+import DS18B20
 import time
 from RelayPiPy.relaypipy import RelayPiPy
 from Heater.Heater import Heater
