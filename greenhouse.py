@@ -7,8 +7,8 @@
 
 import DS18B20
 import time
-from RelayPiPy.relaypipy import RelayPiPy
-from Heater.Heater import Heater
+import RelayPiPy
+import Heater
 #from FishFeeder2.fishfeeder2 import FishFeeder2
 
 pinList = []
