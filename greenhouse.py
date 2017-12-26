@@ -7,7 +7,7 @@
 
 import DS18B20
 import time
-import RelayPiPy
+from relaypipy import RelayPiPy
 import Heater
 #from FishFeeder2.fishfeeder2 import FishFeeder2
 
