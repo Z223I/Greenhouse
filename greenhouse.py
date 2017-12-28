@@ -45,11 +45,11 @@ def heater_init():
 
     gh_heater = Heater( heaterRelay )
 
-    gh_heater.on()
-    time.sleep(2)
+#    gh_heater.on()
+#    time.sleep(2)
 
-    gh_heater.off()
-    time.sleep(2)
+#    gh_heater.off()
+#    time.sleep(2)
 
     return gh_heater
 
@@ -105,10 +105,12 @@ try:
 
     while True:
         water_temp = therms.get_current_temp( "Water" )
-        print "Water temp: ", water_temp
+        fwater_temp = float( water_temp )
+        print "Water temp: ", water_temp, fwater_temp
 
         air_temp = therms.get_current_temp( "Air" )
-        print "Air temp: ", air_temp
+        fair_temp = float( air_temp )
+        print "Air temp: ", air_temp, fair_temp
 
         print
 
