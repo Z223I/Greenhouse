@@ -42,11 +42,8 @@ def heater_init():
 
     # create heater.
     heaterRelay = 3
-#    heaterPin = pinList[ heaterRelay ]
 
     gh_heater = Heater( heaterRelay )
-
-#    gh_heater.init()
 
     gh_heater.on()
     time.sleep(2)
@@ -62,7 +59,7 @@ def heater_init():
 ##################################################
 
 def shutdown():
-    #GPIO.cleanup()
+#    GPIO.cleanup()
     print
     print "Bye!"
 
@@ -91,7 +88,6 @@ try:
 
 
     print "Heater initialization..."
-#    gh_heater = Heater()
     lgh_heater = heater_init()
 
 
