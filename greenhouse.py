@@ -5,10 +5,14 @@
 # TODO: and code for keyboard interupt.
 # On keyboard interrupt... global GPIO not defined.
 
-import DS18B20
+import sys
+sys.path.append('/home/pi/pythondev/Greenhouse')
+
+
+from DS18B20 import DS18B20
 import time
-from relaypipy import RelayPiPy
-import Heater
+#from relaypipy.relaypipy import RelayPiPy
+#import Heater
 #from FishFeeder2.fishfeeder2 import FishFeeder2
 
 pinList = []
@@ -75,8 +79,8 @@ def shutdown():
 
 
 try:
-    relay_init()
-    print "Done with relay."
+#    relay_init()
+#    print "Done with relay."
 
 
 
@@ -88,7 +92,7 @@ try:
 
 #    print "Heater initialization..."
 #    gh_heater = Heater()
-    lgh_heater = heater_init()
+#    lgh_heater = heater_init()
 
 
 
