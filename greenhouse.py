@@ -5,8 +5,8 @@
 # TODO: and code for keyboard interupt.
 # On keyboard interrupt... global GPIO not defined.
 
-import sys
-sys.path.append('/home/pi/pythondev/Greenhouse')
+#import sys
+#sys.path.append('/home/pi/pythondev/Greenhouse')
 
 
 from DS18B20 import DS18B20
