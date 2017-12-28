@@ -11,7 +11,7 @@ sys.path.append('/home/pi/pythondev/Greenhouse')
 
 from DS18B20 import DS18B20
 import time
-#from relaypipy.relaypipy import RelayPiPy
+from relaypipy import RelayPiPy
 #import Heater
 #from FishFeeder2.fishfeeder2 import FishFeeder2
 
@@ -79,8 +79,8 @@ def shutdown():
 
 
 try:
-#    relay_init()
-#    print "Done with relay."
+    relay_init()
+    print "Done with relay."
 
 
 
