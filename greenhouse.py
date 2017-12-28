@@ -90,9 +90,9 @@ try:
 #    gh_fishfeeder = FishFeeder2(1, 1, 1, 1)
 
 
-#    print "Heater initialization..."
+    print "Heater initialization..."
 #    gh_heater = Heater()
-#    lgh_heater = heater_init()
+    lgh_heater = heater_init()
 
 
 
