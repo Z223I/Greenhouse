@@ -92,8 +92,11 @@ try:
 
 
 
+    fMinAirTemp = float( raw_input('Minimum air temp: ') )
+    lgh_heater.setMinAirTemp( fMinAirTemp )
 
-
+    fMinWaterTemp = float( raw_input('Minimum water temp: ') )
+    lgh_heater.setMinWaterTemp( fMinWaterTemp )
 
 
 
@@ -106,11 +109,15 @@ try:
     while True:
         water_temp = therms.get_current_temp( "Water" )
         fwater_temp = float( water_temp )
-        print "Water temp: ", water_temp, fwater_temp
+        lgh_heater.setCurrentWaterTemp( fwater_temp )
+        print "Water temp: ", fwater_temp
 
         air_temp = therms.get_current_temp( "Air" )
         fair_temp = float( air_temp )
-        print "Air temp: ", air_temp, fair_temp
+        lgh_heater.setCurrentAirTemp( fair_temp )
+        print "Air temp: ", fair_temp
+
+        lgh_heater.run()
 
         print
 
