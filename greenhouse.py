@@ -12,7 +12,7 @@ sys.path.append('/home/pi/pythondev/Greenhouse')
 from DS18B20 import DS18B20
 import time
 from relaypipy import RelayPiPy
-#import Heater
+from Heater import Heater
 #from FishFeeder2.fishfeeder2 import FishFeeder2
 
 pinList = []
