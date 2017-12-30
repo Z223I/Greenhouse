@@ -11,6 +11,7 @@
 
 from DS18B20 import DS18B20
 import time
+import os
 from relaypipy import RelayPiPy
 from Heater import Heater
 #from FishFeeder2.fishfeeder2 import FishFeeder2
@@ -60,12 +61,6 @@ def heater_init():
 
     gh_heater = Heater( heaterRelay, fMinAirTemp, fMinWaterTemp )
 
-#    gh_heater.on()
-#    time.sleep(2)
-
-#    gh_heater.off()
-#    time.sleep(2)
-
     return gh_heater
 
 
@@ -91,6 +86,10 @@ def shutdown():
 
 
 try:
+
+    os.remove("stats.csv")
+
+
     relay_init()
     print "Done with relay."
 
