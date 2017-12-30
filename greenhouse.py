@@ -17,6 +17,17 @@ from Heater import Heater
 
 pinList = []
 
+
+def writeStats(_airTemp, _waterTemp):
+    with open("stats.csv", "a") as log:
+        log.write( "{0}, ".format( time.strftime("%Y-%m-%d %H:%M:%S") ) )
+        log.write( "{0}, ".format( str(_airTemp) ) )
+        log.write( "{0} \n".format( str(_waterTemp) ) )
+
+
+
+
+
 def relay_init():
     global pinList
 
@@ -43,7 +54,10 @@ def heater_init():
     # create heater.
     heaterRelay = 3
 
-    gh_heater = Heater( heaterRelay )
+    fMinAirTemp = float( raw_input('Minimum air temp: ') )
+    fMinWaterTemp = float( raw_input('Minimum water temp: ') )
+
+    gh_heater = Heater( heaterRelay, fMinAirTemp, fMinWaterTemp )
 
 #    gh_heater.on()
 #    time.sleep(2)
@@ -92,12 +106,6 @@ try:
 
 
 
-    fMinAirTemp = float( raw_input('Minimum air temp: ') )
-    lgh_heater.setMinAirTemp( fMinAirTemp )
-
-    fMinWaterTemp = float( raw_input('Minimum water temp: ') )
-    lgh_heater.setMinWaterTemp( fMinWaterTemp )
-
 
 
     therms = DS18B20()
@@ -107,17 +115,18 @@ try:
     therms.create_dict()
 
     while True:
-        water_temp = therms.get_current_temp( "Water" )
-        fwater_temp = float( water_temp )
-        lgh_heater.setCurrentWaterTemp( fwater_temp )
-        print "Water temp: ", fwater_temp
-
         air_temp = therms.get_current_temp( "Air" )
         fair_temp = float( air_temp )
-        lgh_heater.setCurrentAirTemp( fair_temp )
         print "Air temp: ", fair_temp
 
-        lgh_heater.run()
+        water_temp = therms.get_current_temp( "Water" )
+        fwater_temp = float( water_temp )
+        print "Water temp: ", fwater_temp
+
+
+        lgh_heater.run(fair_temp, fwater_temp)
+
+        writeStats(fair_temp, fwater_temp)
 
         print
 
