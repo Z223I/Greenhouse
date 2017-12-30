@@ -18,11 +18,12 @@ from Heater import Heater
 pinList = []
 
 
-def writeStats(_airTemp, _waterTemp):
+def writeStats(_airTemp, _waterTemp, _heaterStatus):
     with open("stats.csv", "a") as log:
         log.write( "{0}, ".format( time.strftime("%Y-%m-%d %H:%M:%S") ) )
         log.write( "{0}, ".format( str(_airTemp) ) )
-        log.write( "{0} \n".format( str(_waterTemp) ) )
+        log.write( "{0}, ".format( str(_waterTemp) ) )
+        log.write( "{0} \n".format( str(_heaterStatus) ) )
 
 
 
@@ -125,9 +126,16 @@ try:
         print "Water temp: ", fwater_temp
 
 
-        lgh_heater.run(fair_temp, fwater_temp)
+        heaterOn = lgh_heater.run(fair_temp, fwater_temp)
 
-        writeStats(fair_temp, fwater_temp)
+        if heaterOn:
+            heaterStatus = 80
+            print "HEAT"
+        else:
+            heaterStatus = 30
+            print "temps ok"
+
+        writeStats(fair_temp, fwater_temp, heaterStatus)
 
         print
 
