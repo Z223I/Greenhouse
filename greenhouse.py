@@ -105,6 +105,7 @@ try:
     lgh_heater = heater_init()
 
 
+    timeDelayMinutes = int( raw_input('Time between reading (minutes): ') )
 
 
 
@@ -130,7 +131,7 @@ try:
 
         print
 
-        time.sleep(2)
+        time.sleep(timeDelayMinutes * 60)
 
 # End try
 
