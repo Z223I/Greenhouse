@@ -84,11 +84,18 @@ def shutdown():
 #
 ##################################################
 
+#from pathlib import Path
+#stat_file = Path("stats.csv")
+#if stat_file.is_file():
+#    os.remove(stat_file)
 
 try:
-
     os.remove("stats.csv")
+except:
+    print
 
+
+try:
 
     relay_init()
     print "Done with relay."
@@ -105,7 +112,7 @@ try:
     lgh_heater = heater_init()
 
 
-    timeDelayMinutes = int( raw_input('Time between reading (minutes): ') )
+    timeDelayMinutes = float( raw_input('Time between reading (minutes): ') )
 
 
 
