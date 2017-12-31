@@ -47,6 +47,7 @@ def relay_init():
 
     # Reserve relay 3 for heater
 
+    return gh_relay
 
 
 def heater_init():
@@ -97,7 +98,7 @@ except:
 
 try:
 
-    relay_init()
+    m_relay = relay_init()
     print "Done with relay."
 
 
@@ -151,6 +152,7 @@ try:
 
 except KeyboardInterrupt:
     print "Keyboard Interrupt"
+    m_relay.shutdown()
 # End except
 
 shutdown()
