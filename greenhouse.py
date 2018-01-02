@@ -135,8 +135,12 @@ try:
         fwater_temp = float( water_temp )
         print "Water temp: ", fwater_temp
 
+        if os.path.isfile("StopHeater.txt"):
+            lgh_heater.off()
+            heaterOn = False
+        else:
+            heaterOn = lgh_heater.run(fair_temp, fwater_temp)
 
-        heaterOn = lgh_heater.run(fair_temp, fwater_temp)
 
         if heaterOn:
             heaterStatus = 80
