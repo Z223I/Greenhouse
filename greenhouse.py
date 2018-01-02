@@ -16,6 +16,8 @@ from relaypipy import RelayPiPy
 from Heater import Heater
 #from FishFeeder2.fishfeeder2 import FishFeeder2
 
+import shutil
+
 pinList = []
 
 
@@ -156,3 +158,5 @@ except KeyboardInterrupt:
 # End except
 
 shutdown()
+
+shutil.copy2("stats.csv", "stats.old")
