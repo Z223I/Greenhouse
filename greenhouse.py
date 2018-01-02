@@ -93,6 +93,7 @@ def shutdown():
 #    os.remove(stat_file)
 
 try:
+    shutil.copy2("stats.csv", "stats.old")
     os.remove("stats.csv")
 except:
     print
@@ -158,5 +159,3 @@ except KeyboardInterrupt:
 # End except
 
 shutdown()
-
-shutil.copy2("stats.csv", "stats.old")
