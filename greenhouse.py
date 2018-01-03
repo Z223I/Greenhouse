@@ -1,6 +1,14 @@
 #/usr/bin/python2.7
 
+# TODO: Monitor temperature output of the hot water.
+# And, remove temporarily off in Heater class.
 
+
+# TODO: Turn heater off at certain times of day.
+
+# TODO: If the heater has been on for over, say, 20,
+#       minutes, turn it off for one cycle unless the
+#       air temp is rising.
 
 # TODO: and code for keyboard interupt.
 # On keyboard interrupt... global GPIO not defined.
@@ -93,10 +101,10 @@ def shutdown():
 #    os.remove(stat_file)
 
 try:
-    shutil.copy2("stats.csv", "stats.old")
+    shutil.copy2("stats.csv", "stats.bak")
     os.remove("stats.csv")
 except:
-    print
+    print "copy2 or remove failed"
 
 
 try:
@@ -126,7 +134,14 @@ try:
     therms.NameDevice( "Water" )
     therms.create_dict()
 
+    fair_temp = 0.0
+    #fwater_temp = 0.0
+
     while True:
+
+        fair_temp_old   = fair_temp
+        #fwater_temp_old = fwater_temp
+        
         air_temp = therms.get_current_temp( "Air" )
         fair_temp = float( air_temp )
         print "Air temp: ", fair_temp
